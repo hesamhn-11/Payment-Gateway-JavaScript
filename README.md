@@ -14,4 +14,4 @@ I'm Hesam a fresh Front-end student who is trying to learn and improve in web sk
  -  🔍Technologies Used - HTML , Tailwind , JS
 
 ## 📸Screenshots
-<img width="507" height="830" alt="Image" src="https://github.com/user-attachments/assets/d307da4a-c51d-4cac-b9b1-e53f43c1bd96" />
+<img width="507" height="830" alt="Image" src="https://github.com/user-attachments/assets/3edf6311-5fbd-48dd-b59d-422cefc7cf3c" />
