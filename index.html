@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>درگاه بانکی</title>
+    <link rel="stylesheet" href="stylesheet/output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <div class="card flex flex-wrap border-4">
+      <div class="show border-2 w-full">
+        <div class="cardNum text-[20px] md:text-[24px] font-bold">
+          Card Number
+        </div>
+        <div class="flex items-center">
+          <h3 class="text-[15px] md:text-[15px]">CVV2:</h3>
+          <div class="cvv2 ml-2"></div>
+          <img
+            src="img/Subject 3.png"
+            alt=""
+            class="md:w-[60px] md:h-[40px] w-[50px] h-[40px] absolute bottom-5 right-3.5"
+          />
+        </div>
+        <div class="engheza2 flex items-center">
+          <h3 class="text-[10px] md:text-[13px]">انقضا:</h3>
+          <div class="ml-1"></div>
+          <div class="ml-1"></div>
+        </div>
+      </div>
+      <div class="w-full inp">
+        <input type="text" class="input" inputmode="numeric" />
+        <input type="text" class="input" inputmode="numeric" />
+        <input type="text" class="input" inputmode="numeric" />
+        <input type="text" class="input" inputmode="numeric" />
+      </div>
+      <div class="cvv mt-10">
+        <label for="" class="text-[10px] md:text-[13px]">CVV2:</label>
+        <input type="text" class="input CVV" inputmode="numeric" />
+      </div>
+      <div class="engheza mt-15 flex flex-wrap">
+        <h3 class="text-[10px] md:text-[13px]">تاریخ انقضا:</h3>
+        <input type="text" class="input1" inputmode="numeric" />
+        <input type="text" class="input1" inputmode="numeric" />
+      </div>
+      <div class="mt-5">
+        <button
+          class="cursor-pointer ramzbtn disabled:cursor-not-allowed text-[12px] md:text-[18px]"
+        >
+          رمز پویا
+        </button>
+        <input type="text" class="input ramzinp" inputmode="numeric" />
+      </div>
+      <button class="cursor-pointer ersal">ارسال</button>
+    </div>
+    <!-- copywrite -->
+    <div
+      class="w-full min-h-[50vh] flex justify-center items-center p-4 bg-black"
+    >
+      <div
+        class="bg-red-600 rounded-[30px] shadow-2xl w-full max-w-sm md:max-w-md lg:max-w-lg overflow-hidden p-8 flex flex-col items-center transform transition-all "
+      >
+        <div class="text-center mb-6">
+          <p
+            class="text-black uppercase tracking-widest text-sm font-medium mb-1"
+          >
+            Developer
+          </p>
+          <h2 class="text-black text-2xl md:text-3xl font-bold">
+            Hesam Hassannejad
+          </h2>
+        </div>
+
+        <div class="relative group">
+          <div
+            class="absolute -inset-1 bg-black rounded-full opacity-25 group-hover:opacity-50 transition duration-300"
+          ></div>
+          <img
+            src="img/copy copy.png"
+            alt="Developer"
+            class="relative w-40 h-40 md:w-48 md:h-48 object-cover rounded-full border-4 border-black shadow-lg"
+          />
+        </div>
+
+        <div class="flex justify-center items-center gap-6 mt-8">
+          <a
+            href="https://www.linkedin.com/in/hesam-hassannejad/"
+            target="_blank"
+            class="bg-white p-3 rounded-full text-black hover:bg-black hover:text-white transition-all duration-300 transform hover:-translate-y-1 shadow-md"
+          >
+            <i class="bi bi-linkedin text-xl flex"></i>
+          </a>
+          <a
+            href="https://github.com/hesamhn-11"
+            target="_blank"
+            class="bg-white p-3 rounded-full text-black hover:bg-black hover:text-white transition-all duration-300 transform hover:-translate-y-1 shadow-md"
+          >
+            <i class="bi bi-github text-xl flex"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/hesamhassannejad.dv"
+            target="_blank"
+            class="bg-white p-3 rounded-full text-black hover:bg-black hover:text-white transition-all duration-300 transform hover:-translate-y-1 shadow-md"
+          >
+            <i class="bi bi-instagram text-xl flex"></i>
+          </a>
+          <a
+            href="mailto:hesamhn11@gmail.com"
+            class="bg-white p-3 rounded-full text-black hover:bg-black hover:text-white transition-all duration-300 transform hover:-translate-y-1 shadow-md"
+          >
+            <i class="bi bi-envelope text-xl flex"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- copywrite -->
+  </body>
+  <script>
+    const inp = document.querySelectorAll(".inp>input");
+    const cvv = document.querySelector(".CVV");
+    const engheza = document.querySelectorAll(".engheza>input");
+    const ramz = document.querySelector(".ramzinp");
+    const cardNum = document.querySelector(".cardNum");
+    const CV = document.querySelector(".cvv2");
+    const engheza2 = document.querySelector(".engheza2");
+    const ramzbtn = document.querySelector(".ramzbtn");
+    const ersal = document.querySelector('.ersal')
+    inp.forEach((val, i) => {
+      val.addEventListener("input", () => {
+        if (val.value.length == 4) {
+          if (i < 3) {
+            val.nextElementSibling.focus();
+          } else {
+            cvv.focus();
+          }
+        }
+        let txt = "";
+        for (let k = 0; k <= i; k++) {
+          if (k < 3) {
+            if (inp[k].value.length == 4) {
+              txt += inp[k].value + "-";
+            } else {
+              txt += inp[k].value;
+            }
+          } else {
+            txt += inp[k].value;
+          }
+        }
+        cardNum.innerHTML = txt;
+      });
+    });
+    cvv.addEventListener("input", (e) => {
+      CV.innerHTML = cvv.value;
+      if (cvv.value.length == 3) {
+        engheza[1].focus();
+      }
+    });
+    engheza.forEach((val, i) => {
+      val.addEventListener("input", () => {
+        if (val.value.length == 2) {
+          if (i == 1) {
+            val.previousElementSibling.focus();
+            engheza2.children[2].innerHTML = "/" + val.value;
+          } else {
+            ramz.focus();
+            engheza2.children[1].innerHTML = val.value;
+          }
+        }
+      });
+    });
+    ramzbtn.addEventListener("click", () => {
+      ramzbtn.setAttribute("disabled", "disabled");
+      ramzbtn.style.backgroundColor = "gray";
+      setTimeout(() => {
+        ramzbtn.removeAttribute("disabled", "disabled");
+        ramzbtn.style.backgroundColor = "red";
+      }, 15000);
+    });
+    ersal.addEventListener('click',()=>{
+      ersal.style.backgroundColor='gray'
+      setTimeout(() => {
+        ersal.style.backgroundColor='white'
+      }, 3000);
+    })
+  </script>
+</html>

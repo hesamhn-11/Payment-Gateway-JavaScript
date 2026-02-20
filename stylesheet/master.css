@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@layer components {
+  /* استایل کلی صفحه - اصلاح شده برای کروم ویندوز */
+  body {
+    background-color: #050505;
+    min-height: 100vh;
+    @apply flex items-center justify-center p-4 antialiased flex-wrap;
+    margin: 0;
+  }
+
+  /* کانتینر اصلی کارت - حذف مارجین‌های mb-22 و اصلاح ابعاد */
+  .card {
+    background-color: #0f0f0f;
+    @apply w-full max-w-[450px] rounded-[2.5rem] p-8 border border-zinc-800 flex flex-col gap-6;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    box-shadow: 0 0 50px -15px rgba(220, 38, 38, 0.3);
+    margin: auto; /* برای مرکز ماندن در تمام نمایشگرها */
+  }
+
+  /* بخش نمایشگر کارت مجازی */
+  .show {
+    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+    @apply h-52 rounded-2xl p-6 border border-white/5 flex flex-col justify-between relative overflow-hidden;
+    display: flex !important;
+  }
+
+  .cardNum {
+    @apply text-lg text-white font-mono tracking-widest text-center w-full z-10;
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  }
+
+  /* ردیف اینپوت‌های ۴ تایی شماره کارت */
+  .inp {
+    @apply w-full gap-2;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+  }
+
+  /* استایل تمام ورودی‌ها */
+  .input, .input1, .CVV, .ramzinp {
+    background-color: #1a1a1a !important;
+    @apply border border-zinc-800 rounded-xl text-white font-bold h-12 outline-none transition-all duration-300 px-2;
+  }
+
+  .input:focus, .input1:focus, .CVV:focus, .ramzinp:focus {
+    @apply border-red-600 ring-1 ring-red-600/50;
+    background-color: #000000 !important;
+  }
+
+  /* تنظیم اندازه اختصاصی اینپوت‌های ۴ تایی */
+  .inp .input {
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+    @apply text-center text-lg;
+  }
+
+  /* بخش انقضا */
+  .engheza {
+    @apply w-full items-center gap-3;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .engheza h3 {
+    @apply text-zinc-500 text-[10px] font-bold uppercase shrink-0;
+  }
+
+  /* کوچک کردن اینپوت‌های ماه و سال */
+  .input1 {
+    width: 3.5rem !important;
+    @apply text-center;
+  }
+
+  /* بخش رمز پویا */
+  .mt-5 {
+    @apply w-full items-center gap-3;
+    display: flex !important;
+    flex-direction: row !important;
+  }
+
+  .ramzbtn {
+    @apply bg-red-600 text-white font-black py-3 rounded-xl transition-all h-12;
+    flex: 2 !important;
+  }
+
+  .ramzinp {
+    flex: 1 !important;
+    @apply text-center;
+  }
+
+  /* دکمه ارسال نهایی */
+  button:not(.ramzbtn) {
+    @apply w-full bg-white text-black font-black py-4 rounded-2xl mt-2 transition-all hover:bg-zinc-200 active:scale-95;
+  }
+
+  /* جزئیات متنی */
+  .cvv2, .engheza2 { @apply text-white font-mono text-sm; }
+  h3, label { @apply text-zinc-500 text-[10px] font-bold uppercase tracking-wider; }
+
+  /* اصلاحیه مخصوص ارتفاع لپ‌تاپ (حل مشکل عکسی که فرستادی) */
+  @media (max-height: 820px) {
+    .card {
+      @apply gap-4 p-6;
+      transform: scale(0.9);
+      transform-origin: center;
+    }
+    .show {
+      @apply h-44;
+    }
+    button:not(.ramzbtn) {
+      @apply py-3;
+    }
+  }
+}
